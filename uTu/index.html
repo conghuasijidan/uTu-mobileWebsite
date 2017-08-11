@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <title>友途官网</title>
+    <link href="css/swiper.min.css" rel="stylesheet">
+    <link href="css/global.css" rel="stylesheet">
+</head>
+<body>
+<script>
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            recalc = function() {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                if (Math.abs(window.orientation) == 90) {
+                    clientWidth = docEl.clientHeight;
+                }
+                clientWidth = clientWidth > 640 ? 640 : clientWidth;
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            };
+
+        // Abort if browser does not support addEventListener
+        if (!doc.addEventListener) return;
+        win.addEventListener('resize', recalc, false);
+        doc.addEventListener('DOMContentLoaded', function(){
+            if (!window.orientation || Math.abs(window.orientation) != 90) {
+                recalc();
+            }
+        }, false);
+        doc.body.addEventListener('touchmove', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    })(document, window);
+</script>
+<div class="g-none"><div class="ui-button is-active"></div></div>
+<div class="g-loading" id="loading">
+    <div class="ui-loading"><p>0%</p><i></i></div>
+</div>
+<script>
+    (function(){
+        var loading = document.getElementById('loading'), p = loading.getElementsByTagName('p')[0], now = 0, max = 10, sid, increase = function(){
+            if (now < max) {
+                now++;
+                var retsult = now < 10 ? '0'+now+'%' : now+'%';
+                p.innerHTML = retsult;
+                sid = setTimeout(increase, 16);
+            } else {
+                if (now == 100) {
+                    now++;
+                    increase.callback&&
+                    setTimeout(function(){
+                        increase.callback();
+                    },1200);
+                }
+            }
+        };
+        window.setup = function(val, callback){
+            max = val;
+            increase.callback = callback;
+            clearTimeout(sid);
+            sid = setTimeout(increase, 0);
+        };
+    })();
+</script>
+<div class="g-tips" id="tips"><p>请使用竖屏浏览</p></div>
+<div class="g-content">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide g-section g-section1">
+                <div class="ui-logo"><h1></h1></div>
+                <div class="ui-slogan">
+                    <div class="ui-slogan__box">
+                        <h2>友途<br/><span>在途中随行所遇</span></h2>
+                        <div class="ui-button"><span>立即进入友途</span></div>
+                        <!--<div class="ui-section1-text">立即进入友途</div>-->
+                    </div>
+                </div>
+                <div class="ui-arrow"></div>
+            </div>
+            <div class="swiper-slide g-section g-section2 p1">
+                <div class="ui-box">
+                    <div class="ui-content">
+                        <h2>网约导游 颜格筛选<br/><span>私人导游定制服务为您的旅行增添不少乐趣</span></h2>
+                        <h3></h3>
+                    </div>
+                </div>
+                <div class="ui-arrow"></div>
+            </div>
+            <div class="swiper-slide g-section g-section3 p2">
+                <div class="ui-box">
+                    <div class="ui-section3">
+                        <h2>在线沟通各位大神<br/><span>准确把握出行的时间与地点</span></h2>
+                        <!--<h3>粉丝多到爆，礼物拿不停，收赞到手软</h3>-->
+                    </div>
+                </div>
+                <div class="ui-arrow"></div>
+            </div>
+            <div class="swiper-slide g-section g-section4 p3">
+                <div class="ui-box">
+                    <div class="ui-content">
+                        <h2>语音交友</h2>
+                        <h3>全球近亿用户，拨通电话随时开聊</h3>
+                    </div>
+                </div>
+                <div class="ui-arrow"></div>
+            </div>
+            <div class="swiper-slide g-section g-section3 ">
+                <div class="ui-box">
+                    <div class="ui-section5">
+                        <h2>关于友途<br/><br/><span>友途，是最新推出的特色旅游服务，在互联网时代，我们把网约的概念代入旅游业，为用户的出游提供多样化的选择。友途，让你的出行不再孤单，让你的快乐有人分享，让我们一起即刻出行，随行所遇。</span></h2>
+                        <div class="ui-section5_img"></div>
+                    </div>
+                    <div class="ui-section5_text">立即进入友途</div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>setup(60);</script>
+<script src="js/swiper.min.js"></script>
+<script>
+    (function(){
+        var swiper = new Swiper('.swiper-container', {
+            speed: 500,
+            direction: 'vertical',
+            pagination: '.swiper-pagination',
+            mousewheelControl: !0,
+            watchSlidesProgress: !0
+        }), tips, init = function(){
+            tips = tips || document.getElementById('tips');
+            if (window.orientation && Math.abs(window.orientation) == 90) {
+                tips.style.display = 'block';
+            } else {
+                tips.style.display = 'none';
+            }
+            document.getElementById('loading').style.display = 'none';
+        };
+
+        var button = document.getElementsByClassName('ui-button'), len = button.length;
+        while (len--) {
+            button[len].addEventListener('touchstart', function(){
+                this.className = 'ui-button is-active';
+            }, false);
+            button[len].addEventListener('touchend', function(){
+                this.className = 'ui-button';
+            }, false);
+            if(!/iPhone|iPod/i.test(window.navigator.userAgent)){
+                var a = button[len].getElementsByTagName('a');
+                if (a.length) {
+                    a[0].setAttribute('href','http://data-bilin.qiniudn.com/bilin.apk');
+                }
+            }
+        }
+
+        window.addEventListener('orientationchange', init, false);
+        window.addEventListener('DOMContentLoaded', function(){
+            setup(100, init);
+        }, false);
+    })();
+</script>
+
+
+
+</body>
+</html>
