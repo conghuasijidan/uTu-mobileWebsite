@@ -385,7 +385,7 @@ body, html {
 }
 /* 比邻logo 上半部分*/
 .ui-logo {
-    height: 50%;
+    height: 55%;
     background-image: url(../images/bg_bar.png);
     -webkit-background-size: 100% 100%;
     -moz-background-size: 100%;
@@ -393,7 +393,8 @@ body, html {
     background-size: 100%;
     background-position: 0rem 100%;
     background-repeat: repeat-x;
-    position: relative
+    position: relative;
+    /*top:-20px;*/
 }
 
 .ui-logo h1 {
@@ -448,8 +449,8 @@ body, html {
 /*<span >关注友途公众号：友途网</span><br/><span>获取最新资讯</span>*/
 .ui-button {
     left: 50%;
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 1.4rem;
+    height: 1.4rem;
     margin-left: -.66rem;
 
     line-height: .82rem;
@@ -478,7 +479,7 @@ body, html {
     outline: 0;
     position: relative;
     top:0.8rem;
-    left: 0.3rem;
+    left: 0.05rem;
     /*font-size: 24rem;*/
 
 }
@@ -496,14 +497,14 @@ body, html {
 
 }
 
-.ui-button.is-active {
-    background-image: url(../images/i_btn_hover.png);
-    background-repeat: no-repeat;
-    -webkit-background-size: 100% 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%
-}
+/*.ui-button.is-active {*/
+    /*background-image: url(../images/i_btn_hover.png);*/
+    /*background-repeat: no-repeat;*/
+    /*-webkit-background-size: 100% 100%;*/
+    /*-moz-background-size: 100%;*/
+    /*-o-background-size: 100%;*/
+    /*background-size: 100%*/
+/*}*/
 
 .ui-arrow {
     position: absolute;
@@ -629,13 +630,17 @@ body, html {
     left: 0;
     width: 100%;
     margin-top: -.36rem;
-
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*flex-direction: row;*/
 
 }
 .ui-section5 h2 {
     font-size: .48rem;
     color: #12061f;
     text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .ui-section5 h2 span{
     margin-top: 50rem;
@@ -647,14 +652,11 @@ body, html {
 .ui-section5_img {
     /*background-image: url("");*/
     /*left: 60%;*/
+    position: absolute;
     width: 200rem;
     height: 200rem;
-    margin-left: 2.6rem;
-    margin-top: 1.5rem;
-    /*line-height: .82rem;*/
-    /*text-align: center;*/
-    /*font-size: .3rem;*/
-    /*font-size: 24rem;*/
+    left: 23%;
+    top:200px;
     background-image: url(../images/qrcode.png);
     background-repeat: no-repeat;
     /*-webkit-background-size: 100% 100%;*/
@@ -669,9 +671,9 @@ body, html {
     /*border-radius: 10rem;*/
 }
 .ui-section5_text {
-    position: relative;
-    left:40%;
-    top:135%;
+    position: absolute;
+    left:31%;
+    top:480px;
     font-size: 24px;
     color: #12061f;
     opacity: 0.6;
